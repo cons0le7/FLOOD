@@ -1,6 +1,10 @@
 # FLOOD
 A fast and minimal UDP packet sender. 
 
+#Depends 
+git 
+python3
+
 # Installation: 
 
 ``` 
