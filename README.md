@@ -1,7 +1,7 @@
 # FLOOD
 A fast and minimal UDP packet sender. 
 
-#Depends 
+# Depends 
 git 
 python3
 
