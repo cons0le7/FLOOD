@@ -6,6 +6,6 @@ A fast and minimal UDP packet sender.
 ``` 
 git clone https://github.com/cons0le7/FLOOD 
 sudo apt-get install python3 
-pip sockets
+cd FLOOD
 python3 flood.py 
 ``` 
