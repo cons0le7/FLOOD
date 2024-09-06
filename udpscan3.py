@@ -40,7 +40,7 @@ target_ip = input(color_red("Enter target IP: "))
 ports_input = input(color_red("Enter ports to scan (comma-separated). Type ? to scan common ports: "))
 
 if ports_input == "?":
-    ports_to_scan = [53, 67, 68, 69, 123, 161, 162, 514, 520, 5353]
+    ports_to_scan = [53,67,68,69,88,123,137,138,161,162,455,514,520,5060,5353]
 else:
     ports_to_scan = [int(port.strip()) for port in ports_input.split(",")]
 
