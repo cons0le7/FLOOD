@@ -37,8 +37,12 @@ def scan_udp_port(target_ip, port):
         sock.close()
 
 target_ip = input(color_red("Enter target IP: "))
-ports_input = input(color_red("Enter ports to scan (comma-separated): "))
-ports_to_scan = [int(port.strip()) for port in ports_input.split(",")]
+ports_input = input(color_red("Enter ports to scan (comma-separated). Type ? to scan common ports: "))
+
+if ports_input == "?":
+    ports_to_scan = [53, 67, 68, 69, 123, 161, 162, 514, 520, 5353]
+else:
+    ports_to_scan = [int(port.strip()) for port in ports_input.split(",")]
 
 for port in ports_to_scan:
     scan_udp_port(target_ip, port)
