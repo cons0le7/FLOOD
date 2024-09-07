@@ -21,4 +21,5 @@ Run after initiating flood to monitor target's ping:
 ```
 
 ![screenshot_1](https://github.com/user-attachments/assets/0b886da2-5d0a-42e2-9ba2-c9c87a6b2dc1)
-![screenshot_2](https://github.com/user-attachments/assets/0fe8dfd0-880c-4e87-81d4-1fa63fe2cf24)
+
+![screenshot_2](https://github.com/user-attachments/assets/9d49e5c0-a23b-468a-bad7-0243e83e390f)
