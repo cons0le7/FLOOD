@@ -3,7 +3,7 @@ A fast and minimal UDP packet sender.
 
 -Port scan tool built in. 
 
--Flood tool will create a bash script to monitor ping of target. You will need to run ./ping.sh in a seperate instance.
+-Flood tool will create a bash script to monitor ping of target. You will need to run ./ping.sh in a seperate instance if you wish to monitor.
 
 # Depends 
 git 
