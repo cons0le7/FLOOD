@@ -5,7 +5,7 @@ A fast and minimal UDP/TCP packet sender.
 
 -Flood tool will create a bash script to monitor ping of target. You will need to run ./ping.sh in a seperate instance if you wish to monitor.
 
-^REQUIRES ROOT PRIVILEGES^
+-TCP tools require root privileges. 
 
 # Depends 
 git 
