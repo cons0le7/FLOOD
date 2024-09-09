@@ -1,5 +1,5 @@
 # FLOOD
-A fast and minimal UDP packet sender. 
+A fast and minimal UDP/TCP packet sender. 
 
 -Port scan tool built in. 
 
