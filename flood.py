@@ -53,7 +53,7 @@ print(color_red("""
 UDP_IP = input(color_red("Enter the target IP address (e.g., 127.0.0.1): "))
 UDP_PORT = int(input(color_red("Enter the target port (e.g., 5005): ")))
 packet_size = int(input(color_red("Enter the packet size in bytes (1 - 65507): ")))
-print(color_yellow("File to monitor ping of " + UDP_IP + " will be created. Run ./ping.sh in a seperate terminal after flood has been initialized."))
+print(color_yellow("File to monitor ping of " + UDP_IP + " will be created. Run ./FLOOD/ping.sh in a seperate terminal after flood has been initialized."))
 amount = int(input(color_red("Enter the number of packets to send: ")))
 
 MESSAGE = create_message(packet_size)
