@@ -5,12 +5,8 @@ def color_red(text):
     RESET = "\033[0m"
     return f"{RED}{text}{RESET}" 
 
-print(color_red("""  
-
-PROTOCOL
-
-"""))
-
+print(color_red("""
+SELECT PROTOCOL:"""))
 try:
     choice = int(input(color_red("""
     1 - UDP
@@ -25,6 +21,6 @@ try:
     elif choice == 3: 
         import main
     else:
-        print(color_red("Invalid choice. Please enter 1 or 2."))
+        print(color_red("Invalid choice. Please enter 1 - 3"))
 except ValueError:
-    print(color_red("Invalid input. Please enter a number (1 or 2)."))
+    print(color_red("Invalid input. Please enter a number (1 - 3)."))
