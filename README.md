@@ -10,16 +10,18 @@ git
 
 python3
 
+scapy
+
 # Installation: 
 
 ``` 
 git clone https://github.com/cons0le7/FLOOD 
 cd FLOOD
-python3 main.py 
+sudo python3 main.py 
 ``` 
 Run after initiating flood to monitor target's ping: 
 ```
-./ping.sh
+./FLOOD/ping.sh
 ```
 
 ![screenshot_1](https://github.com/user-attachments/assets/0b886da2-5d0a-42e2-9ba2-c9c87a6b2dc1)
