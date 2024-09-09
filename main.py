@@ -36,7 +36,7 @@ dX.    9Xb      .dXb    __                         __    dXb.     dXP     .Xb
 
 try:
     choice = int(input(color_red("""
-    1 - Scan for open UDP ports.
+    1 - Scan for open ports.
     2 - Open FLOOD tool.
     3 - Exit. 
     """)))
@@ -44,7 +44,7 @@ try:
     if choice == 1:
         import udpscan3
     elif choice == 2:
-        import flood
+        import flood_protocols
     elif choice == 3: 
         sys.exit()
     else:
