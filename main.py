@@ -1,4 +1,5 @@
 import sys 
+import subprocess
 
 def color_red(text):
     RED = "\033[91m"
@@ -38,7 +39,8 @@ try:
     choice = int(input(color_red("""
     1 - Scan for open ports.
     2 - Open FLOOD tool.
-    3 - Exit. 
+    3 - Update.
+    4 - Exit.  
     """)))
     
     if choice == 1:
@@ -46,6 +48,8 @@ try:
     elif choice == 2:
         import flood_protocols
     elif choice == 3: 
+        subprocess.run(['git', 'pull', 'http://github.com/cons0le7/FLOOD'])
+    elif choice == 4: 
         sys.exit()
     else:
         print(color_red("Invalid choice. Please enter 1 - 3."))
