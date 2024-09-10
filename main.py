@@ -42,12 +42,12 @@ try:
     """)))
     
     if choice == 1:
-        import udpscan3
+        import scan_protocols
     elif choice == 2:
         import flood_protocols
     elif choice == 3: 
         sys.exit()
     else:
-        print(color_red("Invalid choice. Please enter 1 or 2."))
+        print(color_red("Invalid choice. Please enter 1 - 3."))
 except ValueError:
-    print(color_red("Invalid input. Please enter a number (1 or 2)."))
+    print(color_red("Invalid input. Please enter a number (1 - 3)."))

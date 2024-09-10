@@ -1,3 +1,4 @@
+import sys
 import socket
 
 def color_red(text):
@@ -5,15 +6,19 @@ def color_red(text):
     RESET = "\033[0m"
     return f"{RED}{text}{RESET}"
 
-print(color_red(""" 
+def color_green(text):
+    GREEN = "\033[32m" 
+    RESET = "\033[0m"
+    return f"{GREEN}{text}{RESET}"
 
-  _   _ ____  ____    ____   ____    _    _   _ 
- | | | |  _ \|  _ \  / ___| / ___|  / \  | \ | |
- | | | | | | | |_) | \___ \| |     / _ \ |  \| |
- | |_| | |_| |  __/   ___) | |___ / ___ \| |\  |
-  \___/|____/|_|     |____/ \____/_/   \_\_| \_|
-                                                
-
+print(color_red("""  _    _ _____  _____     _____  _____          _   _ 
+ | |  | |  __ \|  __ \   / ____|/ ____|   /\   | \ | |
+ | |  | | |  | | |__) | | (___ | |       /  \  |  \| |
+ | |  | | |  | |  ___/   \___ \| |      / /\ \ | . ` |
+ | |__| | |__| | |       ____) | |____ / ____ \| |\  |
+  \____/|_____/|_|      |_____/ \_____/_/    \_\_| \_|
+                                                      
+                                                      
  """))
 
 def scan_udp_port(target_ip, port):
@@ -27,12 +32,12 @@ def scan_udp_port(target_ip, port):
 
         try:
             response, addr = sock.recvfrom(1024)
-            print(color_red(f"Port {port} is open."))
+            print(color_green(f"Port {port} is open."))
         except socket.timeout:
             print(color_red(f"Port {port} is closed or filtered."))
 
     except Exception as e:
-        print(f"Error scanning port {port}: {e}")
+        print(color_red(f"Error scanning port {port}: {e}"))
 
     finally:
         sock.close()
@@ -47,3 +52,12 @@ else:
 
 for port in ports_to_scan:
     scan_udp_port(target_ip, port)
+    
+complete_choice = input("Scan complete. Open flood tool? (y/n): ") 
+
+if complete_choice == 'y': 
+    import flood 
+elif complete_choice == 'n': 
+    sys.exit() 
+else:
+    print(color_red("Invalid choice. Please y or n."))

@@ -19,12 +19,12 @@ try:
     """)))
     
     if choice == 1:
-        import flood
+        import udpscan3
     elif choice == 2:
-        import tcp_flood
+        import tcp_scan
     elif choice == 3: 
         import main
     else:
-        print(color_red("Invalid choice. Please enter 1 or 2."))
+        print(color_red("Invalid choice. Please enter 1 - 3."))
 except ValueError:
-    print(color_red("Invalid input. Please enter a number (1 or 2)."))
+    print(color_red("Invalid input. Please enter a number (1 - 3)."))

