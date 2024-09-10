@@ -52,6 +52,6 @@ try:
     elif choice == 4: 
         sys.exit()
     else:
-        print(color_red("Invalid choice. Please enter 1 - 3."))
+        print(color_red("Invalid choice. Please enter 1 - 4."))
 except ValueError:
-    print(color_red("Invalid input. Please enter a number (1 - 3)."))
+    print(color_red("Invalid input. Please enter a number (1 - 4)."))
