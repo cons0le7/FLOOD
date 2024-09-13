@@ -47,10 +47,6 @@ def color_green(text):
     RESET = "\033[0m"
     return f"{GREEN}{text}{RESET}"
 
-def create_message(size):
-    return b'X' * size 
-
-
 def start_threads(TCP_IP, TCP_PORT, packet_size, thread_count):
     threads = []
     for T in range(thread_count):
