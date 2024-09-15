@@ -56,7 +56,7 @@ for port in ports_to_scan:
 complete_choice = input("Scan complete. Open flood tool? (y/n): ") 
 
 if complete_choice == 'y': 
-    import flood 
+    import udp_flood 
 elif complete_choice == 'n': 
     sys.exit() 
 else:

@@ -19,7 +19,7 @@ try:
     """)))
     
     if choice == 1:
-        import udpscan3
+        import udp_scan
     elif choice == 2:
         import tcp_scan
     elif choice == 3: 

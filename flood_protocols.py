@@ -19,7 +19,7 @@ try:
     """)))
     
     if choice == 1:
-        import flood
+        import udp_flood
     elif choice == 2:
         import tcp_flood
     elif choice == 3: 
